@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypt</title>
+    <link href=' http://fonts.googleapis.com/css?family=Inter' rel='stylesheet' type='text/css'>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            screens: {
+            'xs': '350px',
+            // => @media (min-width: 390px) { ... }
+
+            'sm': '640px',
+            // => @media (min-width: 640px) { ... }
+
+            'md': '768px',
+            // => @media (min-width: 768px) { ... }
+
+            'lg': '1024px',
+            // => @media (min-width: 1024px) { ... }
+
+            'xl': '1280px',
+            // => @media (min-width: 1280px) { ... }
+
+            '2xl': '1536px',
+            // => @media (min-width: 1536px) { ... }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-[#F3F5FC]">
+    <div class="grid grid-cols-[116px_1fr_1fr]">
+        <div class="mt-10 ml-[84px]">
+            <img src="img/logo.png">
+        </div>
+        <div class="flex flex-col h-screen">
+            <textarea class="w-full mt-[168px] ml-[124px] focus:outline-none placeholder-[#0A3871] font-['Inter'] font-normal text-[32px] text-[#0A3871] leading-[48px] bg-[#F3F5FC] resize-none" placeholder="Ingrese el texto aquí" id="textinput" rows="14"></textarea>
+            <div class="flex flex-row items-center">
+                <img class="w-4 h-4 ml-[124px]" src="img/info.png">
+                <p class="ml-2 font-['Inter'] font-normal text-[12px] text-[#495057] leading-[18px]">Solo letras minúsculas y sin acentos</p>
+            </div>
+            <div class="flex flex-row ml-[124px] mt-4 mb-[72px]">
+                <button onclick="encrypt()" type="button" id="encrypt" class="rounded-3xl w-full h-[67px] bg-[#0A3871] hover:bg-[#052051] text-white font-['Inter'] font-normal text-[16px] leading-[19px]">Encriptar</button>
+                <button onclick="decrypt()" type="button" id="decrypt" class="ml-6 rounded-3xl w-full h-[67px] hover:bg-[#E9ECF8] font-['Inter'] font-normal text-[16px] leading-[19px] text-[#0A3871] border border-[#0A3871]">Desencriptar</button>
+            </div>
+        </div>
+        <div class="flex flex-col h-screen justify-self-end">
+            <div class="shadow-md bg-[#FFFFFF] w-[400px] h-screen rounded-[32px] my-10 mr-10 float-left flex flex-col justify-center">
+                <div id="divimage">
+                    <img class="mx-auto" src="img/vector.png">
+                    <p class="font-['Inter'] font-bold text-[24px] text-[#343A40] text-center leading-7 mt-8 mx-8">Ningún mensaje fue encontrado</p>
+                    <p class="font-['Inter'] font-normal text-[16px] text-[#495057] text-center leading-6 mt-4 mx-8">Ingresa el texto que desees encriptar o desencriptar.</p>
+                </div>
+                <div id="divtext" class="hidden flex flex-col h-full ">
+                    <p id="showtext" class="overflow-y-auto h-full break-words text-left m-8 font-['Inter'] font-normal text-[24px] leading-9 text-[#495057]"></p>
+                    <button onclick="copy()" type="button" id="copy" class="m-8 rounded-3xl h-[67px] hover:bg-[#E9ECF8] font-['Inter'] font-normal text-[16px] leading-[19px] text-[#0A3871] border border-[#0A3871]">Copiar</button>
+                </div>
+            </div>
+        </div>
+      </div>
+</body>
+</html>
