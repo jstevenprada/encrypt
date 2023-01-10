@@ -6,7 +6,7 @@ function encrypt() {
     .replace(/o/g, 'ober')
     .replace(/u/g, 'ufat');
     document.getElementById('showtext').innerText = textencrypted;
-    hidediv();
+    hidediv(text);
 }
 
 function decrypt() {
@@ -17,14 +17,17 @@ function decrypt() {
     .replace(/ober/g, 'o')
     .replace(/ufat/g, 'u');
     document.getElementById('showtext').innerText = textdecrypted;
-    hidediv();
+    hidediv(text);
 }
 
-function hidediv() {
-    document.getElementById('textinput').value = '';
-    document.getElementById('divimage').style.display = 'none';
-    document.getElementById('divtext').style.display = 'flex';
-    document.getElementById('divtext').style.flexDirection = 'column';
+function hidediv(text) {
+    if (text.length > 0) {
+        console.log(text)
+        document.getElementById('textinput').value = '';
+        document.getElementById('divimage').style.display = 'none';
+        document.getElementById('divtext').style.display = 'flex';
+        document.getElementById('divtext').style.flexDirection = 'column';
+    }
 }
 
 async function copy() {

@@ -12,8 +12,8 @@
         tailwind.config = {
           theme: {
             screens: {
-            'xs': '350px',
-            // => @media (min-width: 390px) { ... }
+            'xs': '375px',
+            // => @media (min-width: 375px) { ... }
 
             'sm': '640px',
             // => @media (min-width: 640px) { ... }
@@ -35,29 +35,31 @@
     </script>
 </head>
 <body class="bg-[#F3F5FC]">
-    <div class="grid grid-cols-[116px_1fr_1fr]">
-        <div class="mt-10 ml-[84px]">
+    <!-- <div class="grid xl:grid-cols-[116px_1fr_1fr] md:grid-rows-[118px_1fr_173px]"> -->
+    <!-- <div class="grid xl:grid-cols-[116px_1fr_1fr] md:grid-rows-[118px_1fr_173px] md:h-screen"> -->
+    <div class="grid xl:grid-cols-[116px_1fr_1fr] md:grid-rows-[118px_1fr_173px] md:h-screen">
+        <div class="xl:mt-10 md:mt-[70px] xl:ml-[84px] md:ml-10">
             <img src="img/logo.png">
         </div>
-        <div class="flex flex-col h-screen">
-            <textarea class="w-full mt-[168px] ml-[124px] focus:outline-none placeholder-[#0A3871] font-['Inter'] font-normal text-[32px] text-[#0A3871] leading-[48px] bg-[#F3F5FC] resize-none" placeholder="Ingrese el texto aquí" id="textinput" rows="14"></textarea>
-            <div class="flex flex-row items-center">
-                <img class="w-4 h-4 ml-[124px]" src="img/info.png">
+        <div class="flex flex-col xl:h-screen">
+            <textarea class="selection:bg-blue-200 h-full xl:max-w-[577px] xl:mt-[168px] xl:ml-[124px] md:mt-[120px] md:mx-10 focus:outline-none placeholder-[#0A3871] font-['Inter'] font-normal text-[32px] text-[#0A3871] leading-[48px] bg-[#F3F5FC] resize-none" placeholder="Ingrese el texto aquí" id="textinput"></textarea>
+            <div class="flex flex-row items-center md:mx-10 xl:mx-0">
+                <img class="w-4 h-4 xl:ml-[124px]" src="img/info.png">
                 <p class="ml-2 font-['Inter'] font-normal text-[12px] text-[#495057] leading-[18px]">Solo letras minúsculas y sin acentos</p>
             </div>
-            <div class="flex flex-row ml-[124px] mt-4 mb-[72px]">
-                <button onclick="encrypt()" type="button" id="encrypt" class="rounded-3xl w-full h-[67px] bg-[#0A3871] hover:bg-[#052051] text-white font-['Inter'] font-normal text-[16px] leading-[19px]">Encriptar</button>
-                <button onclick="decrypt()" type="button" id="decrypt" class="ml-6 rounded-3xl w-full h-[67px] hover:bg-[#E9ECF8] font-['Inter'] font-normal text-[16px] leading-[19px] text-[#0A3871] border border-[#0A3871]">Desencriptar</button>
+            <div class="flex flex-row xl:ml-[124px] mt-4 xl:mb-[72px] md:mb-16 md:mx-10">
+                <button onclick="encrypt()" type="button" id="encrypt" class="rounded-3xl w-full xl:w-[328px] h-[67px] bg-[#0A3871] hover:bg-[#052051] text-white font-['Inter'] font-normal text-[16px] leading-[19px]">Encriptar</button>
+                <button onclick="decrypt()" type="button" id="decrypt" class="ml-6 rounded-3xl w-full xl:w-[328px] h-[67px] hover:bg-[#E9ECF8] font-['Inter'] font-normal text-[16px] leading-[19px] text-[#0A3871] border border-[#0A3871]">Desencriptar</button>
             </div>
         </div>
-        <div class="flex flex-col h-screen justify-self-end">
-            <div class="shadow-md bg-[#FFFFFF] w-[400px] h-screen rounded-[32px] my-10 mr-10 float-left flex flex-col justify-center">
-                <div id="divimage">
-                    <img class="mx-auto" src="img/vector.png">
+        <div class="flex xl:flex-col xl:h-screen xl:justify-self-end md:flex-row">
+            <div class="shadow-md bg-[#FFFFFF] xl:w-[400px] xl:h-screen md:w-full md:h-max md:mx-10 md:mb-10 xl:my-10 xl:mr-10 rounded-[32px] flex flex-col justify-center">
+                <div id="divimage" class="xl:h-[456px] md:h-[133px]">
+                    <img class="mx-auto md:hidden sm:hidden xs:hidden xl:flex" src="img/vector.png">
                     <p class="font-['Inter'] font-bold text-[24px] text-[#343A40] text-center leading-7 mt-8 mx-8">Ningún mensaje fue encontrado</p>
                     <p class="font-['Inter'] font-normal text-[16px] text-[#495057] text-center leading-6 mt-4 mx-8">Ingresa el texto que desees encriptar o desencriptar.</p>
                 </div>
-                <div id="divtext" class="hidden flex flex-col h-full ">
+                <div id="divtext" class="hidden flex flex-col xl:h-full">
                     <p id="showtext" class="overflow-y-auto h-full break-words text-left m-8 font-['Inter'] font-normal text-[24px] leading-9 text-[#495057]"></p>
                     <button onclick="copy()" type="button" id="copy" class="m-8 rounded-3xl h-[67px] hover:bg-[#E9ECF8] font-['Inter'] font-normal text-[16px] leading-[19px] text-[#0A3871] border border-[#0A3871]">Copiar</button>
                 </div>
